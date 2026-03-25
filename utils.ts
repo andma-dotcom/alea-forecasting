@@ -1,6 +1,13 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { cn } from "./utils";
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="skeleton"
+      className={cn("bg-accent animate-pulse rounded-md", className)}
+      {...props}
+    />
+  );
 }
+
+export { Skeleton };
